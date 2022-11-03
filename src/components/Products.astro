@@ -1,0 +1,23 @@
+---
+import Card from "./Card.astro";
+import { products } from "../data/products";
+---
+
+<section>
+  <div class="container center py-16">
+    <h2 class="text-center md:mx-8">
+      Some indispensables accessoires to optimize your experience
+    </h2>
+    <div class="flex mx-auto gap-4 mt-8 overflow-x-auto w-full">
+      {
+        products.map((product) => (
+          <Card
+            href={product.href}
+            title={product.title}
+            price={product.price}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

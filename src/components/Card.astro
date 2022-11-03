@@ -1,0 +1,19 @@
+---
+export interface Props {
+  href: string;
+  title: string;
+  price: number;
+}
+
+const { href, title, price } = Astro.props;
+---
+
+<div
+  class="py-6 flex flex-col justify-center text-center border bg-white min-w-[300px]"
+>
+  <img class="px-8" src={href} alt={title} />
+  <div class="p-2">
+    <p class="text-xl md:text-base font-semibold">{title}</p>
+    <span class="text-md">{price} €</span>
+  </div>
+</div>

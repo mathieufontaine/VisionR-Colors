@@ -1,0 +1,46 @@
+<div
+  class="popin hidden fixed z-[100] w-screen h-screen bg-black bg-opacity-60"
+>
+  <div
+    class="absolute text-center flex flex-col gap-4 left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] p-8 md:p-20 bg-primaryBg items-center justify-center mx-auto w-[90%] md:w-2/3"
+  >
+    <div class="cross text-lg p-2 absolute right-2 top-2">X</div>
+    <img class="h-8 w-8" src="/src/assets/monkey.png" alt="monkey" />
+    <h2>Vous y avez (vraiment?) cru ?</h2>
+    <p>
+      En tout cas, on espère que ça vous a fait sourire, parce qu’on en a bien
+      besoin en ce moment. Et sinon, vous avez sûrement des produits plus
+      intéressants à vendre.
+    </p>
+    <p>
+      Ça tombe bien, nos équipes sont plus fortes en communication digitale
+      qu’en innovations en carton.
+    </p>
+  </div>
+</div>
+
+<script>
+  const popin = document.querySelector(".popin");
+  const cross = document.querySelector(".cross");
+
+  document.addEventListener("scroll", showPopin);
+
+  cross.addEventListener("click", () => {
+    closePopin();
+    document.removeEventListener("scroll", showPopin);
+  });
+
+  function showPopin() {
+    if (
+      document.body.scrollTop > 2000 ||
+      document.documentElement.scrollTop > 2000
+    ) {
+      popin.classList.remove("hidden");
+      popin.classList.add("flex");
+    }
+  }
+  function closePopin() {
+    popin.classList.remove("flex");
+    popin.classList.add("hidden");
+  }
+</script>
